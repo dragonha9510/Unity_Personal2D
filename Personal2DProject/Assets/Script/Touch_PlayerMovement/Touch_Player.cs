@@ -35,5 +35,4 @@ public class Touch_Player : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         direction = Vector2.zero;
         movement.info = direction;
     }
-
 }

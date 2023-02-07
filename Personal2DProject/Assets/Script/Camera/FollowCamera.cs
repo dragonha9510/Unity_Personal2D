@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform targetTransform;
+    [SerializeField] private float followRange;
+    [SerializeField] private float speed = 2;
+
+    private void Start()
     {
-        
+        if (targetTransform == null)
+            targetTransform = GameObject.Find("Player_CameraBox").transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Vector2 direction = targetTransform.position - transform.position;
+
+        direction = direction / followRange;
+
+        transform.position += new Vector3(direction.x, direction.y, 0) * Time.deltaTime * speed;
     }
 }

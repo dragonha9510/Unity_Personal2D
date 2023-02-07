@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    [SerializeField, Range(0, 1)] private float speed;
+    [SerializeField, Range(0, 2)] private float speed;
     private Vector2 direction;
     public Vector2 info { get { return direction; } set { direction = value; } }
 
@@ -13,6 +13,6 @@ public class Player_Movement : MonoBehaviour
         if (direction == Vector2.zero)
             return;
 
-        transform.position += new Vector3(direction.x, direction.y, 0) * speed * 0.1f;
+        transform.position += new Vector3(direction.x, direction.y, 0) * speed * Time.deltaTime;
     }
 }
